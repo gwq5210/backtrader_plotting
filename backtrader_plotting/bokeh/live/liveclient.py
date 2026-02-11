@@ -6,7 +6,7 @@ from typing import Any, Callable, Dict, List
 
 import backtrader as bt
 
-from bokeh.models.widgets import Panel, Tabs, Slider, Button
+from bokeh.models import TabPanel, Tabs, Slider, Button
 from bokeh.layouts import column, row
 from bokeh.io import curdoc
 from bokeh.models.widgets import Div, Select
@@ -56,7 +56,7 @@ class LiveClient:
 
         # append meta tab
         meta = Div(text=metadata.get_metadata_div(strategy))
-        self._panel_metadata = Panel(child=meta, title="Meta")
+        self._panel_metadata = TabPanel(child=meta, title="Meta")
 
         self._refreshmodel()
 
@@ -120,7 +120,7 @@ class LiveClient:
 
         r1 = row(children=[Div(text='Aspect Ratio', margin=(15, 10, 0, 10)), self._slider_aspectratio])
 
-        return Panel(child=column(children=[r1, button]), title='Config')
+        return TabPanel(child=column(children=[r1, button]), title='Config')
 
     def _on_select_group(self, a, old, new):
         _logger.info(f"Switching logic group to {new}...")
