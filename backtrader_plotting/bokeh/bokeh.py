@@ -368,11 +368,11 @@ class Bokeh(metaclass=bt.MetaParams):
         # append meta tab
         if not self._is_optreturn:
             assert figurepage.strategy is not None
-            meta = Div(text=metadata.get_metadata_div(figurepage.strategy, self.p.scheme.strategysrc))
+            meta = Div(text=metadata.get_metadata_div(figurepage.strategy, self.p.scheme.strategysrc), sizing_mode="stretch_both")
             metapanel = TabPanel(child=meta, title="Meta")
             panels.append(metapanel)
 
-        model = Tabs(tabs=panels)
+        model = Tabs(tabs=panels, sizing_mode="stretch_both")
 
         # attach the model to the underlying figure for later reference (e.g. unit test)
         figurepage.model = model

@@ -58,7 +58,7 @@ class OptBrowser:
 
         # TODO: currently table size is hardcoded
         cds = ColumnDataSource(df)
-        selector = DataTable(source=cds, columns=tab_columns, width=1600, height=150)
+        selector = DataTable(source=cds, columns=tab_columns, sizing_mode='stretch_width', height=150)
         return selector, cds
 
     def build_optresult_model(self, _=None) -> Model:

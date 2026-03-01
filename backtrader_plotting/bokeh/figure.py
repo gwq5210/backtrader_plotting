@@ -47,6 +47,7 @@ class Figure(object):
                    x_axis_type='linear',
                    aspect_ratio=self._scheme.plotaspectratio,
                    output_backend="webgl",
+                   sizing_mode="stretch_both",
                    )
 
         f.y_range.range_padding = self._scheme.y_range_padding
